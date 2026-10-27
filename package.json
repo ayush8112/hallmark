@@ -33,6 +33,7 @@
     ]
   },
   "scripts": {
-    "serve": "python3 -m http.server --directory site 4173"
+    "serve": "python3 -m http.server --directory site 4173",
+    "build:chat": "python3 tools/build-chat-skill.py"
   }
 }

@@ -99,6 +99,7 @@ npx skills add nutlope/hallmark -g
 
 - **One harness only:** `npx skills add nutlope/hallmark -g --agent claude-code` (or `codex`, `opencode`, `cursor`, `github-copilot`).
 - **As a Claude Code plugin:** `/plugin marketplace add nutlope/hallmark`, then `/plugin install hallmark@hallmark` (invoked as `/hallmark:hallmark`).
+- **In Claude chat (claude.ai, desktop and mobile):** run `python3 tools/build-chat-skill.py` (or `npm run build:chat`) to produce `dist/hallmark-claude-chat.zip`, then upload it under Settings, Capabilities, Skills. Code execution must be on. Invoke by naming it: *use hallmark to build ...*.
 - **From a clone:** `node skills/hallmark/scripts/install.mjs` validates every theme and reference before it copies; `install-hook.mjs` adds an edit-time Floor check to Claude Code.
 - **Lint any page:** `node skills/hallmark/scripts/sloplint.mjs <file-or-dir> --render`.
 - **If it does not fire on its own,** name it: *use hallmark to build ...*.
