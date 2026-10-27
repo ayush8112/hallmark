@@ -79,7 +79,8 @@ def nav(current):
 
 
 def footer(head_line, lead, action, sources, photos):
-    links = "\n".join(f'        <li><a href="{h}">{l}</a></li>' for h, l in PAGES)
+    blurbs = {"index.html": "The short version", "mangroves.html": "How the mud stores carbon", "credits.html": "From carbon to credit", "contact.html": "Ask about your creek"}
+    links = "\n".join(f'        <li>{link_row(h, l, blurbs[h])}</li>' for h, l in PAGES)
     photo_line = ""
     if photos:
         photo_line = f'      <p>Photographs: {", ".join(PHOTO_CREDITS[p] for p in photos)}, Wikimedia Commons.</p>\n'
@@ -134,8 +135,15 @@ def q(sid, heading, answer, cls="q"):
 """
 
 
+DEST = {"index.html": "Overview", "mangroves.html": "Mangroves page", "credits.html": "Carbon credits page", "contact.html": "Contact page"}
+
+
+def link_row(href, text, dest):
+    return f'<a class="link-row" href="{href}"><span class="link-row__label">{text}</span><span class="link-row__dest">{dest}</span></a>'
+
+
 def more(href, text):
-    return f'        <p><a class="text" href="{href}">{text}</a></p>'
+    return "        " + link_row(href, text, DEST[href.split("#")[0]])
 
 
 def add_more(section, link):
@@ -346,8 +354,8 @@ def page_contact():
   </section>
 
 """
-    who = q("who", "Who looks after Maharashtra’s mangroves?", """        <p>The state Forest Department’s Mangrove Cell and the Mangrove Foundation it works with. Their official site carries the current contacts.</p>
-        <p><a class="text" href="https://mangroves.maharashtra.gov.in">mangroves.maharashtra.gov.in</a></p>""")
+    who = q("who", "Who looks after Maharashtra’s mangroves?", f"""        <p>The state Forest Department’s Mangrove Cell and the Mangrove Foundation it works with. Their official site carries the current contacts.</p>
+        {link_row("https://mangroves.maharashtra.gov.in", "mangroves.maharashtra.gov.in", "Official site")}""")
     before = q("before", "What helps us answer fast?", """        <ul class="asks">
           <li>The creek or village name, and its district.</li>
           <li>Whether a project has already approached you.</li>
