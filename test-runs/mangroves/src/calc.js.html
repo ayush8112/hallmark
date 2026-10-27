@@ -1,0 +1,17 @@
+<script>
+(() => {
+  const r = document.getElementById('ha'), n = document.getElementById('ha-num');
+  const stock = document.getElementById('out-stock'), year = document.getElementById('out-year');
+  const fmt = new Intl.NumberFormat('en-IN', { maximumFractionDigits: 0 });
+  const set = (v) => {
+    v = Math.min(31509, Math.max(1, Math.round(Number(v) || 1)));
+    r.value = v; n.value = v;
+    stock.textContent = fmt.format(v * 3751);
+    year.textContent = fmt.format(v * 5.08);
+  };
+  r.addEventListener('input', () => set(r.value));
+  n.addEventListener('change', () => set(n.value));
+  document.querySelectorAll('[data-ha]').forEach((b) => b.addEventListener('click', () => set(b.dataset.ha)));
+  set(r.value);
+})();
+</script>

@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact, Kandalvan</title>
+<meta name="description" content="Questions about mangroves and carbon credits on the Maharashtra coast.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="container">
+    <a class="wordmark" href="index.html">Kandalvan</a>
+    <nav aria-label="Pages">
+      <ul>
+        <li><a href="mangroves.html">Mangroves</a></li>
+        <li><a href="credits.html">Carbon credits</a></li>
+        <li><a href="contact.html" aria-current="page">Contact</a></li>
+      </ul>
+    </nav>
+    <a class="btn" href="contact.html">Get in touch</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero hero--contact">
+    <div class="container">
+      <div class="hero-text">
+        <h1>Talk to us about your creek</h1>
+        <p class="lead">Questions from villages, panchayats and departments all welcome.</p>
+        <div class="actions">
+          <a class="btn btn--primary" href="#write">Write to us</a>
+          <a class="btn" href="https://mangroves.maharashtra.gov.in">Mangrove Cell, Maharashtra</a>
+        </div>
+      </div>
+      <form class="sheet form" id="write" novalidate>
+        <div class="field">
+          <label for="f-name">Your name</label>
+          <input id="f-name" name="name" type="text" autocomplete="name" required>
+          <p class="error" id="e-name" hidden>Tell us your name.</p>
+        </div>
+        <div class="field">
+          <label for="f-email">Email or phone</label>
+          <input id="f-email" name="reach" type="text" autocomplete="email" required>
+          <p class="error" id="e-email" hidden>Add a way to reach you.</p>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="f-role">You are</label>
+            <select id="f-role" name="role">
+              <option>From a coastal village</option>
+              <option>From a gram panchayat</option>
+              <option>From a government department</option>
+              <option>A student or researcher</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-district">Coastal district</label>
+            <select id="f-district" name="district">
+              <option>Not sure</option>
+              <option>Palghar</option>
+              <option>Thane</option>
+              <option>Mumbai City</option>
+              <option>Mumbai Suburban</option>
+              <option>Raigad</option>
+              <option>Ratnagiri</option>
+              <option>Sindhudurg</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="f-msg">Your question</label>
+          <textarea id="f-msg" name="message" rows="5" required></textarea>
+          <p class="error" id="e-msg" hidden>Write your question.</p>
+        </div>
+        <button class="btn btn--primary" type="submit">Send</button>
+        <p class="status" id="f-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <section class="q" id="who">
+    <div class="container">
+      <h2>Who looks after Maharashtra’s mangroves?</h2>
+      <div class="answer">
+        <p>The state Forest Department’s Mangrove Cell and the Mangrove Foundation it works with. Their official site carries the current contacts.</p>
+        <p><a class="text" href="https://mangroves.maharashtra.gov.in">mangroves.maharashtra.gov.in</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="q" id="before">
+    <div class="container">
+      <h2>What helps us answer fast?</h2>
+      <div class="answer">
+        <ul class="asks">
+          <li>The creek or village name, and its district.</li>
+          <li>Whether a project has already approached you.</li>
+          <li>Any papers you were given, as a photo.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="letter">
+      <h2>Start with the forest.</h2>
+      <p>New to mangroves? Read how the mud stores carbon before you write.</p>
+      <div class="actions"><a class="btn btn--primary" href="mangroves.html">Meet the mangroves</a></div>
+    </div>
+    <nav class="footer-pages" aria-label="All pages">
+      <ul>
+        <li><a href="index.html">Overview</a></li>
+        <li><a href="mangroves.html">Mangroves</a></li>
+        <li><a href="credits.html">Carbon credits</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="small">
+      <p>Sources: Mangrove cover: India State of Forest Report 2023, via <a href="https://www.pib.gov.in/PressReleasePage.aspx?PRID=2146358">PIB, 21 July 2025</a>.</p>
+    </div>
+  </div>
+</footer>
+<script>
+(() => {
+  const f = document.getElementById('write');
+  const checks = [['f-name', 'e-name'], ['f-email', 'e-email'], ['f-msg', 'e-msg']];
+  f.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let first = null;
+    for (const [i, er] of checks) {
+      const input = document.getElementById(i), msg = document.getElementById(er);
+      const bad = !input.value.trim();
+      input.setAttribute('aria-invalid', bad ? 'true' : 'false');
+      bad ? input.setAttribute('aria-describedby', er) : input.removeAttribute('aria-describedby');
+      msg.hidden = !bad;
+      if (bad && !first) first = input;
+    }
+    const st = document.getElementById('f-status');
+    if (first) { first.focus(); st.textContent = ''; return; }
+    st.textContent = 'This form is not connected yet, so nothing was sent. Please use the Mangrove Cell site for now.';
+  });
+})();
+</script>
+</body>
+</html>

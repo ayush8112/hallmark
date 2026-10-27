@@ -1,0 +1,27 @@
+  <section class="q" id="calc">
+    <div class="container">
+      <h2>What would your creek hold?</h2>
+      <div class="answer">
+        <div class="sheet calc">
+          <label for="ha">Hectares of mangrove protected</label>
+          <div class="calc-row">
+            <input id="ha" type="range" min="1" max="31509" step="1" value="100" aria-describedby="ha-note">
+            <input id="ha-num" type="number" min="1" max="31509" step="1" value="100" aria-label="Hectares, typed">
+          </div>
+          <div class="presets" role="group" aria-label="Presets">
+            <button type="button" class="btn" data-ha="1">One hectare</button>
+            <button type="button" class="btn" data-ha="100">A creek, 100 ha</button>
+            <button type="button" class="btn" data-ha="31509">All of Maharashtra</button>
+          </div>
+          <table aria-live="polite">
+            <thead><tr><th scope="col">Estimate, at the study averages</th><th scope="col" class="num">Tonnes CO<sub>2</sub></th></tr></thead>
+            <tbody>
+              <tr><td>Already stored</td><td class="num" id="out-stock">375,100</td></tr>
+              <tr class="point"><td>Added each year</td><td class="num" id="out-year">508</td></tr>
+            </tbody>
+          </table>
+          <p id="ha-note" class="note">Study averages; real sites vary. Not a credit estimate.</p>
+        </div>
+      </div>
+    </div>
+  </section>

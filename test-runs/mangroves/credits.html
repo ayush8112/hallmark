@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Carbon credits, Kandalvan</title>
+<meta name="description" content="How mangrove carbon becomes a credit, which rulebooks apply, and what your creek might hold.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="container">
+    <a class="wordmark" href="index.html">Kandalvan</a>
+    <nav aria-label="Pages">
+      <ul>
+        <li><a href="mangroves.html">Mangroves</a></li>
+        <li><a href="credits.html" aria-current="page">Carbon credits</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <a class="btn" href="contact.html">Get in touch</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="container">
+      <div class="hero-text">
+        <h1>One credit, one tonne of CO<sub>2</sub></h1>
+        <p class="lead">A credit is proof that carbon stayed out of the air.</p>
+        <div class="actions">
+          <a class="btn btn--primary" href="#calc">Try your creek</a>
+          <a class="btn" href="#steps">How one is made</a>
+        </div>
+      </div>
+      <div class="hero-sheet sheet">
+        <table>
+          <thead><tr><th scope="col">One hectare of mangrove, on average</th><th scope="col" class="num">Tonnes CO<sub>2</sub></th></tr></thead>
+          <tbody>
+            <tr><td>Already stored</td><td class="num">3,751</td></tr>
+            <tr class="point"><td>Added each year</td><td class="num">5.08</td></tr>
+          </tbody>
+        </table>
+        <p class="note">From the study averages; real sites vary.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="q" id="steps">
+    <div class="container">
+      <h2>How does a mangrove project earn credits?</h2>
+      <div class="answer">
+        <ol class="steps">
+          <li><h3>Pick a methodology</h3><p>The rulebook for counting. For tidal wetlands under Verra’s standard, that is VM0033.</p></li>
+          <li><h3>Measure the baseline</h3><p>What the site would hold if nothing were done.</p></li>
+          <li><h3>Restore or protect</h3><p>Plant, reconnect tides, stop the clearing.</p></li>
+          <li><h3>Monitor and verify</h3><p>An independent auditor checks the carbon gained against the baseline.</p></li>
+          <li><h3>Issue credits</h3><p>Only verified tonnes become credits on a registry.</p></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="q" id="markets">
+    <div class="container">
+      <h2>Which market would a credit sell in?</h2>
+      <div class="answer">
+        <div class="sheet">
+          <table>
+            <thead><tr><th scope="col">Market</th><th scope="col">Rulebook</th><th scope="col" class="num">In force</th></tr></thead>
+            <tbody>
+              <tr><td>Voluntary, Verra</td><td>VM0033 v2.1, tidal wetland and seagrass restoration</td><td class="num">4 Sep 2023</td></tr>
+              <tr><td>India, compliance</td><td>Carbon Credit Trading Scheme, Ministry of Power</td><td class="num">28 Jun 2023</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Verra is consulting on a version 3.0 of VM0033, so the rules are still moving.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="q" id="calc">
+    <div class="container">
+      <h2>What would your creek hold?</h2>
+      <div class="answer">
+        <div class="sheet calc">
+          <label for="ha">Hectares of mangrove protected</label>
+          <div class="calc-row">
+            <input id="ha" type="range" min="1" max="31509" step="1" value="100" aria-describedby="ha-note">
+            <input id="ha-num" type="number" min="1" max="31509" step="1" value="100" aria-label="Hectares, typed">
+          </div>
+          <div class="presets" role="group" aria-label="Presets">
+            <button type="button" class="btn" data-ha="1">One hectare</button>
+            <button type="button" class="btn" data-ha="100">A creek, 100 ha</button>
+            <button type="button" class="btn" data-ha="31509">All of Maharashtra</button>
+          </div>
+          <table aria-live="polite">
+            <thead><tr><th scope="col">Estimate, at the study averages</th><th scope="col" class="num">Tonnes CO<sub>2</sub></th></tr></thead>
+            <tbody>
+              <tr><td>Already stored</td><td class="num" id="out-stock">375,100</td></tr>
+              <tr class="point"><td>Added each year</td><td class="num" id="out-year">508</td></tr>
+            </tbody>
+          </table>
+          <p id="ha-note" class="note">Study averages; real sites vary. Not a credit estimate.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="q well" id="caveat">
+    <div class="container">
+      <h2>What should a panchayat ask first?</h2>
+      <div class="answer">
+        <ul class="asks">
+          <li>Who holds the rights to the land and the credits?</li>
+          <li>Which standard and methodology, and which version?</li>
+          <li>Who verifies, and how often?</li>
+          <li>How much of the income reaches the village?</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="letter">
+      <h2>Weighing up a project?</h2>
+      <p>Bring your questions about a site, a standard or a proposal.</p>
+      <div class="actions"><a class="btn btn--primary" href="contact.html">Get in touch</a></div>
+    </div>
+    <nav class="footer-pages" aria-label="All pages">
+      <ul>
+        <li><a href="index.html">Overview</a></li>
+        <li><a href="mangroves.html">Mangroves</a></li>
+        <li><a href="credits.html">Carbon credits</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="small">
+      <p>Sources: Donato, D. C. et al. (2011). Mangroves among the most carbon-rich forests in the tropics. Nature Geoscience 4, 293 to 297. <a href="https://doi.org/10.1038/ngeo1123">doi:10.1038/ngeo1123</a>. Breithaupt, J. L. and Steinmuller, H. E. (2022). Refining the global estimate of mangrove carbon burial rates using sedimentary and geomorphic settings. Geophysical Research Letters 49, e2022GL100177. <a href="https://doi.org/10.1029/2022GL100177">doi:10.1029/2022GL100177</a>. Methodology: <a href="https://verra.org/methodologies/vm0033-methodology-for-tidal-wetland-and-seagrass-restoration-v2-1/">Verra, VM0033 v2.1</a>. Indian scheme: <a href="https://beeindia.gov.in/show_content.php?lang=1&amp;level=1&amp;ls_id=189&amp;lid=294">Bureau of Energy Efficiency, Carbon Market</a>. CO<sub>2</sub> figures converted at 44/12.</p>
+    </div>
+  </div>
+</footer>
+<script>
+(() => {
+  const r = document.getElementById('ha'), n = document.getElementById('ha-num');
+  const stock = document.getElementById('out-stock'), year = document.getElementById('out-year');
+  const fmt = new Intl.NumberFormat('en-IN', { maximumFractionDigits: 0 });
+  const set = (v) => {
+    v = Math.min(31509, Math.max(1, Math.round(Number(v) || 1)));
+    r.value = v; n.value = v;
+    stock.textContent = fmt.format(v * 3751);
+    year.textContent = fmt.format(v * 5.08);
+  };
+  r.addEventListener('input', () => set(r.value));
+  n.addEventListener('change', () => set(n.value));
+  document.querySelectorAll('[data-ha]').forEach((b) => b.addEventListener('click', () => set(b.dataset.ha)));
+  set(r.value);
+})();
+</script>
+</body>
+</html>

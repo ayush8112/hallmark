@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kandalvan, the carbon in the mud</title>
-<meta name="description" content="Why Maharashtra's mangroves are some of the most carbon-rich forests in the tropics, in plain answers.">
+<meta name="description" content="Why Maharashtra’s mangroves are some of the most carbon-rich forests in the tropics, in plain answers.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -14,17 +14,15 @@
 
 <header class="nav">
   <div class="container">
-    <a class="wordmark" href="#top">Kandalvan</a>
-    <nav aria-label="Sections">
+    <a class="wordmark" href="index.html" aria-current="page">Kandalvan</a>
+    <nav aria-label="Pages">
       <ul>
-        <li><a href="#how-much">How much</a></li>
-        <li><a href="#where">Where it sits</a></li>
-        <li><a href="#cut">If we cut them</a></li>
-        <li><a href="#calc">Your creek</a></li>
-        <li><a href="#maharashtra">Maharashtra</a></li>
+        <li><a href="mangroves.html">Mangroves</a></li>
+        <li><a href="credits.html">Carbon credits</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
-    <a class="btn" href="#credits">How credits work</a>
+    <a class="btn" href="contact.html">Get in touch</a>
   </div>
 </header>
 
@@ -36,7 +34,7 @@
         <p class="lead">More carbon per hectare than most tropical forests, mostly in the mud.</p>
         <div class="actions">
           <a class="btn btn--primary" href="#how-much">See the numbers</a>
-          <a class="btn" href="https://doi.org/10.1038/ngeo1123">Read the study</a>
+          <a class="btn" href="mangroves.html">Meet the mangroves</a>
         </div>
       </div>
       <figure>
@@ -81,6 +79,7 @@
           </svg>
           <p class="figure-unit" style="font-size: var(--text-md)">Share of the carbon held in soil, lowest forest to highest.</p>
         </div>
+        <p><a class="text" href="mangroves.html#store">How the mud stores it</a></p>
       </div>
     </div>
   </section>
@@ -98,6 +97,7 @@
             <tr><td>Share of global deforestation emissions, up to</td><td class="num">10%</td></tr>
           </tbody>
         </table>
+        <p><a class="text" href="mangroves.html#threats">What is clearing them</a></p>
       </div>
     </div>
   </section>
@@ -119,34 +119,7 @@
           </table>
         </div>
         
-      </div>
-    </div>
-  </section>
-
-  <section class="q" id="calc">
-    <div class="container">
-      <h2>What would your creek hold?</h2>
-      <div class="answer">
-        <div class="sheet calc">
-          <label for="ha">Hectares of mangrove protected</label>
-          <div class="calc-row">
-            <input id="ha" type="range" min="1" max="31509" step="1" value="100" aria-describedby="ha-note">
-            <input id="ha-num" type="number" min="1" max="31509" step="1" value="100" aria-label="Hectares, typed">
-          </div>
-          <div class="presets" role="group" aria-label="Presets">
-            <button type="button" class="btn" data-ha="1">One hectare</button>
-            <button type="button" class="btn" data-ha="100">A creek, 100 ha</button>
-            <button type="button" class="btn" data-ha="31509">All of Maharashtra</button>
-          </div>
-          <table aria-live="polite">
-            <thead><tr><th scope="col">Estimate, at the study averages</th><th scope="col" class="num">Tonnes CO<sub>2</sub></th></tr></thead>
-            <tbody>
-              <tr><td>Already stored</td><td class="num" id="out-stock">375,100</td></tr>
-              <tr class="point"><td>Added each year</td><td class="num" id="out-year">508</td></tr>
-            </tbody>
-          </table>
-          <p id="ha-note" class="note">Study averages; real sites vary. Not a credit estimate.</p>
-        </div>
+        <p><a class="text" href="credits.html">How a mangrove credit is made</a></p>
       </div>
     </div>
   </section>
@@ -166,6 +139,7 @@
           </table>
         </div>
         <p>The national MISHTI restoration programme launched on 5 June 2023.</p>
+        <p><a class="text" href="mangroves.html#maharashtra">Maharashtra’s coast in detail</a></p>
       </div>
     </div>
   </section>
@@ -187,34 +161,24 @@
   <div class="container">
     <div class="letter">
       <h2>Take this to your panchayat.</h2>
-      <p>Every figure here comes from two peer-reviewed studies and the Government of India. Read it, share it, and ask what your creek holds.</p>
-      <div class="actions"><a class="btn btn--primary" href="https://doi.org/10.1038/ngeo1123">Read the study</a></div>
+      <p>Every figure here comes from two peer-reviewed studies and the Government of India. Share it, and ask what your creek holds.</p>
+      <div class="actions"><a class="btn btn--primary" href="contact.html">Get in touch</a></div>
     </div>
+    <nav class="footer-pages" aria-label="All pages">
+      <ul>
+        <li><a href="index.html">Overview</a></li>
+        <li><a href="mangroves.html">Mangroves</a></li>
+        <li><a href="credits.html">Carbon credits</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
     <div class="small">
-      <p>Source: Donato, D. C. et al. (2011). Mangroves among the most carbon-rich forests in the tropics. Nature Geoscience 4, 293 to 297. <a href="https://doi.org/10.1038/ngeo1123">doi:10.1038/ngeo1123</a>. Breithaupt, J. L. and Steinmuller, H. E. (2022). Refining the global estimate of mangrove carbon burial rates using sedimentary and geomorphic settings. Geophysical Research Letters 49, e2022GL100177. <a href="https://doi.org/10.1029/2022GL100177">doi:10.1029/2022GL100177</a>. Mangrove cover: India State of Forest Report 2023, via <a href="https://www.pib.gov.in/PressReleasePage.aspx?PRID=2146358">PIB, 21 July 2025</a>. CO<sub>2</sub> figures converted at 44/12.</p>
+      <p>Sources: Donato, D. C. et al. (2011). Mangroves among the most carbon-rich forests in the tropics. Nature Geoscience 4, 293 to 297. <a href="https://doi.org/10.1038/ngeo1123">doi:10.1038/ngeo1123</a>. Breithaupt, J. L. and Steinmuller, H. E. (2022). Refining the global estimate of mangrove carbon burial rates using sedimentary and geomorphic settings. Geophysical Research Letters 49, e2022GL100177. <a href="https://doi.org/10.1029/2022GL100177">doi:10.1029/2022GL100177</a>. Mangrove cover: India State of Forest Report 2023, via <a href="https://www.pib.gov.in/PressReleasePage.aspx?PRID=2146358">PIB, 21 July 2025</a>. CO<sub>2</sub> figures converted at 44/12.</p>
       <p>Photographs: <a href="https://commons.wikimedia.org/wiki/File:Shrimp_fisherman.jpg">Tomas Castelazo</a> (CC BY-SA 3.0), <a href="https://commons.wikimedia.org/wiki/File:Fisherman_at_Gullmarsvik_mudflats.jpg">W.carter</a> (CC0), Wikimedia Commons.</p>
     </div>
   </div>
 </footer>
-
 <script>window.hallmarkSlots = (m) => { for (const [k, v] of Object.entries(m)) { const s = document.querySelector(`[data-slot="${k}"]`); if (!s) continue; const im = new Image(); im.src = typeof v === 'string' ? v : v.src; im.alt = (typeof v === 'object' && v.alt) || s.dataset.alt || ''; s.querySelectorAll(':scope > img').forEach((o) => o.remove()); s.prepend(im); } };
 document.querySelectorAll('[data-slot] img').forEach((i) => { if (i.complete && !i.naturalWidth) i.remove(); else i.addEventListener('error', () => i.remove(), { once: true }); });</script>
-<script>
-(() => {
-  const r = document.getElementById('ha'), n = document.getElementById('ha-num');
-  const stock = document.getElementById('out-stock'), year = document.getElementById('out-year');
-  const fmt = new Intl.NumberFormat('en-IN', { maximumFractionDigits: 0 });
-  const set = (v) => {
-    v = Math.min(31509, Math.max(1, Math.round(Number(v) || 1)));
-    r.value = v; n.value = v;
-    stock.textContent = fmt.format(v * 3751);
-    year.textContent = fmt.format(v * 5.08);
-  };
-  r.addEventListener('input', () => set(r.value));
-  n.addEventListener('change', () => set(n.value));
-  document.querySelectorAll('[data-ha]').forEach((b) => b.addEventListener('click', () => set(b.dataset.ha)));
-  set(r.value);
-})();
-</script>
 </body>
 </html>
