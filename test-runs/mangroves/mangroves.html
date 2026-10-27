@@ -148,6 +148,18 @@ tr.point td { color: var(--color-accent-2); }
   .nav ul { display: none; }
 }
 
+/* calculator */
+.calc { display: grid; gap: var(--space-md); }
+.calc label { font: 500 var(--text-sm)/1.3 var(--font-body); color: var(--color-muted); }
+.calc-row { display: grid; grid-template-columns: minmax(0, 1fr) 9rem; gap: var(--space-md); align-items: center; }
+.calc input[type="range"] { width: 100%; accent-color: var(--color-accent); min-height: 44px; }
+.calc input[type="number"] { min-height: 44px; padding: var(--space-xs) var(--space-sm); border: var(--rule-hair) solid var(--color-muted); border-radius: 0; background: var(--color-sheet); color: var(--color-ink); font: 500 var(--text-md)/1 var(--font-outlier); text-align: right; font-variant-numeric: tabular-nums; }
+.calc input[type="number"]:hover { border-color: var(--color-ink); }
+.calc input:disabled, .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.presets { display: flex; flex-wrap: wrap; gap: var(--space-xs); }
+.calc td.num { font-size: var(--text-xl); font-variant-numeric: tabular-nums; }
+.note { font-size: var(--text-sm); color: var(--color-muted); }
+
 </style>
 </head>
 <body>
@@ -160,7 +172,7 @@ tr.point td { color: var(--color-accent-2); }
         <li><a href="#how-much">How much</a></li>
         <li><a href="#where">Where it sits</a></li>
         <li><a href="#cut">If we cut them</a></li>
-        <li><a href="#credits">Credits</a></li>
+        <li><a href="#calc">Your creek</a></li>
         <li><a href="#maharashtra">Maharashtra</a></li>
       </ul>
     </nav>
@@ -203,7 +215,7 @@ tr.point td { color: var(--color-accent-2); }
     <div class="container">
       <h2>Wait, the carbon is in the mud?</h2>
       <div class="answer">
-        <p>Yes. The soil under a mangrove runs from half a metre to more than three metres deep, and it holds most of the store.</p>
+        <p>Yes. The soil runs half a metre to over three metres deep and holds most of it.</p>
         <div class="sheet">
           <svg class="chart" viewBox="0 0 1000 150" role="img" aria-labelledby="chart-title">
             <title id="chart-title">Share of mangrove carbon held in the soil: from 49 to 98 percent across the forests measured</title>
@@ -258,7 +270,35 @@ tr.point td { color: var(--color-accent-2); }
             </tbody>
           </table>
         </div>
-        <p>Credits are only issued for what a certified project can measure and prove.</p>
+        
+      </div>
+    </div>
+  </section>
+
+  <section class="q" id="calc">
+    <div class="container">
+      <h2>What would your creek hold?</h2>
+      <div class="answer">
+        <div class="sheet calc">
+          <label for="ha">Hectares of mangrove protected</label>
+          <div class="calc-row">
+            <input id="ha" type="range" min="1" max="31509" step="1" value="100" aria-describedby="ha-note">
+            <input id="ha-num" type="number" min="1" max="31509" step="1" value="100" aria-label="Hectares, typed">
+          </div>
+          <div class="presets" role="group" aria-label="Presets">
+            <button type="button" class="btn" data-ha="1">One hectare</button>
+            <button type="button" class="btn" data-ha="100">A creek, 100 ha</button>
+            <button type="button" class="btn" data-ha="31509">All of Maharashtra</button>
+          </div>
+          <table aria-live="polite">
+            <thead><tr><th scope="col">Estimate, at the study averages</th><th scope="col" class="num">Tonnes CO<sub>2</sub></th></tr></thead>
+            <tbody>
+              <tr><td>Already stored</td><td class="num" id="out-stock">375,100</td></tr>
+              <tr class="point"><td>Added each year</td><td class="num" id="out-year">508</td></tr>
+            </tbody>
+          </table>
+          <p id="ha-note" class="note">Study averages; real sites vary. Not a credit estimate.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -311,5 +351,22 @@ tr.point td { color: var(--color-accent-2); }
 
 <script>window.hallmarkSlots = (m) => { for (const [k, v] of Object.entries(m)) { const s = document.querySelector(`[data-slot="${k}"]`); if (!s) continue; const im = new Image(); im.src = typeof v === 'string' ? v : v.src; im.alt = (typeof v === 'object' && v.alt) || s.dataset.alt || ''; s.querySelectorAll(':scope > img').forEach((o) => o.remove()); s.prepend(im); } };
 document.querySelectorAll('[data-slot] img').forEach((i) => { if (i.complete && !i.naturalWidth) i.remove(); else i.addEventListener('error', () => i.remove(), { once: true }); });</script>
+<script>
+(() => {
+  const r = document.getElementById('ha'), n = document.getElementById('ha-num');
+  const stock = document.getElementById('out-stock'), year = document.getElementById('out-year');
+  const fmt = new Intl.NumberFormat('en-IN', { maximumFractionDigits: 0 });
+  const set = (v) => {
+    v = Math.min(31509, Math.max(1, Math.round(Number(v) || 1)));
+    r.value = v; n.value = v;
+    stock.textContent = fmt.format(v * 3751);
+    year.textContent = fmt.format(v * 5.08);
+  };
+  r.addEventListener('input', () => set(r.value));
+  n.addEventListener('change', () => set(n.value));
+  document.querySelectorAll('[data-ha]').forEach((b) => b.addEventListener('click', () => set(b.dataset.ha)));
+  set(r.value);
+})();
+</script>
 </body>
 </html>
