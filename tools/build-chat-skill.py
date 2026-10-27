@@ -45,6 +45,8 @@ def rewrite_frontmatter(text):
     if not any(l.startswith("license:") for l in top):
         top.append("license: MIT")
     fm = "\n".join(top + (["metadata:"] + meta if meta else []))
+    # Claude chat rejects anything that looks like an XML tag, e.g. `<path>`.
+    fm = re.sub(r"<([^<>]*)>", lambda t: t.group(1).upper(), fm)
     return f"---\n{fm}\n---\n" + text[m.end():]
 
 
